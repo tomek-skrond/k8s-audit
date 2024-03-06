@@ -1,4 +1,4 @@
-Link do roky linux
+Link do rocky linux
 
 jak zainstalować kubernetes poradnik/linki/komendy
 

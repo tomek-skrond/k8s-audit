@@ -1,5 +1,19 @@
-### Kubernetes setup
+# Kubernetes setup:
+Jeśli zainstalowałeś poprawnie maszynki, aby zainstalować kubernetesa, wykonaj poniższe kroki.
 
+<b>Zwróć szczególną uwagę, które komendy powinny być wykonywane na `master nodach` a które na `worker nodach`.</b>
+
+### Prerequisites:
+#### Przed instalacją:
+- utwórz sieć wewnętrzną HOST ONLY w VirtualBoxie
+- przypisz STATYCZNE IP każdej VMce w klastrze (ja polecam ustawiać za pomocą komendy `nmtui`)
+- przypisz hostname każdej VMce w klastrze (`hostnamectl set-hostname <hostname_vmki>` przykładowy hostname: `master-node`)
+- opcjonalne: konfiguracja `/etc/hosts` - przypisanie IPkom w klastrze lokalnych nazw
+
+Po wykonaniu tych akcji zrób <b>SNAPSHOT</b> systemów (lepiej tak niż odpalac ciagle Vagranta)
+
+### Instalacja:
+Wykonaj poniższe komendy na poszczególnych nodach (nie kopiuj wszystkiego na raz pls).
 ```
 ################# WYKONAJ NA WSZYSTKICH NODACH #################
 
@@ -77,3 +91,16 @@ kubeadm token create --print-join-command 2>/dev/null
 
 ################# /WYKONAJ NA MASTER NODE #################
 ```
+
+Komenda:
+```
+# Generate join command for the workers
+kubeadm token create --print-join-command 2>/dev/null
+```
+powinna zwrócić podobny output:
+
+```
+kubeadm join 192.168.56.110:6443 --token hp9b0k.1g9tqz8vkf78ucwf     --discovery-token-ca-cert-hash sha256:32eb67948d72ba99aac9b5bb0305d66a48f43b0798cb2df99c8b1c30708bdc2c
+```
+
+Jest to komenda pozwalająca podłączyć się workerowi do klastra zarządzanego przez odpowiedniego mastera. Pomyślne wykonanie tej komendy na worker-nodzie kończy konfigurację worker node'a (a zarazem klastra).

@@ -20,6 +20,7 @@
 
 
 Artykuły do k8s:
+- https://kubernetes.io/docs/concepts/architecture/
 - https://medium.com/google-cloud/kubernetes-101-pods-nodes-containers-and-clusters-c1509e409e16
 - https://kubernetes.io/docs/tutorials/kubernetes-basics/
 - https://www.youtube.com/watch?v=s_o8dwzRlu4

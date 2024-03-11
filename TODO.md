@@ -1,7 +1,7 @@
-Link do rocky linux
+[x] Link do rocky linux
 
-jak zainstalować kubernetes poradnik/linki/komendy
+[x] jak zainstalować kubernetes poradnik/linki/komendy
 
-Zrobić przentacje 
+[ ] Zrobić przentacje 
 
-Poszukać automatu do CIS Benchamrk
+[ ] Poszukać automatu do CIS Benchamrk

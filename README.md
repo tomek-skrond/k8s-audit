@@ -17,3 +17,10 @@
 - Plik z dokumentacją podsumowującą projekt należy dostarczyć na skrzynkę mailową `email_prowadzacego` przed ostatecznym oddaniem
 - Szablon nazwy pliku: `AIIT-<temat>-<nr indeksu1-nr indeksu2>.pdf`
 - Plik PDF z dokumentacją końcową musi być zaszyfrowany.
+
+
+Artykuły do k8s:
+- https://medium.com/google-cloud/kubernetes-101-pods-nodes-containers-and-clusters-c1509e409e16
+- https://kubernetes.io/docs/tutorials/kubernetes-basics/
+- https://www.youtube.com/watch?v=s_o8dwzRlu4
+- https://www.youtube.com/watch?v=jPdIRX6q4jA&list=PLy7NrYWoggjwPggqtFsI_zMAwvG0SqYCb

@@ -1,0 +1,33 @@
+---
+- name: Install updates and tools
+  hosts: masters
+  become: yes
+  tasks:
+    - name: Update and upgrade 
+      shell: dnf update -y && dnf upgrade -y
+    - name: Install packages
+      shell: dnf install -y vim
+- name: Configure system (before reboot)
+  hosts: masters
+  become: yes
+  gather_facts: no
+  tasks:
+    - name: fill /etc/hosts
+      lineinfile:
+        path: /etc/hosts
+        line: "{{ master_ipv4 }} master"
+    - name: fill /etc/hosts
+      lineinfile:
+        path: /etc/hosts
+        line: "127.0.0.1 master"
+    - name: Disable Firewall
+      service:
+        name: firewalld
+        state: stopped
+        enabled: false
+    - name: Disable swap
+      shell: "cat /etc/fstab; sudo swapoff -a; sed -i '/swap/d' /etc/fstab"
+    - name: Disable SELinux permanently
+      shell: "sed -i --follow-symlinks 's/^SELINUX=enforcing/SELINUX=disabled/' /etc/sysconfig/selinux"
+    - name: Reboot host for SELinux to take effect
+      ansible.builtin.reboot:

@@ -111,7 +111,12 @@ W tym przypadku `IP_ADDR=172.16.16.5`
 ### Komenda instalujaca master node
 Do instalacji potrzeba adresu IP host only mastera + hostname utworzonego w /etc/hosts dla localhost, chodzi o ten wpis w `/etc/hosts`: 
 ```
-"127.0.0.1 master"
+"127.0.0.1 master-node"
+```
+
+Ustawienie hostname:
+```
+hostnamectl set-hostname master-node
 ```
 
 Pełna komenda:
@@ -125,7 +130,7 @@ Jesli ta komenda sfailuje, to najlepiej wrocic do wczesniejszego snapshota (najl
 exit
 ```
 
-Komenda pozwalajaca uzywac `kubectl` z konta non-root
+Komenda pozwalajaca uzywac `kubectl` z konta non-root, aby uzywac `kubectl` na koncie root, takze trzeba je wykonac:
 ```
 mkdir -p $HOME/.kube
 sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
@@ -140,7 +145,7 @@ wget https://raw.githubusercontent.com/projectcalico/calico/v3.26.4/manifests/cu
 
 kubectl apply -f custom-resources.yaml
 ```
-Poczekaj aż klaster sie stworzy, zeby sie zainstalowal, wszystkie pody muszą miec status Ready 1/1 oraz Running
+Poczekaj aż klaster sie stworzy, zeby sie zainstalowal, wszystkie pody (oprócz core-dns) muszą miec status Ready 1/1 oraz Running
 
 Zeby to sprawdzic, uzyj komendy: 
 ```

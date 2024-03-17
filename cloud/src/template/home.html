@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fruit home</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Insert fruit</h1>
+    <form action="/fruit" method="POST">
+        <label for="fname">Fruit name:</label><br>
+        <input type="text" id="name" name="name"><br>
+        <label for="taste">Fruit taste:</label><br>
+        <input type="text" id="taste" name="taste"><br>
+        <label for="rating">Fruit rating:</label><br>
+        <input type="text" id="rating" name="rating"><br><br>
+        <input type="submit" value="Submit">
+    </form>
+    
+    <h1>Fruit list</h1>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Taste</th>
+            <th>Rating</th>
+        </tr>
+        {{range .}}
+        <tr>
+            <td>{{.Name}}</td>
+            <td>{{.Taste}}</td>
+            <td>{{.Rating}}</td>
+        </tr>
+        {{end}}
+    </table>
+</body>
+</html>

@@ -1,2 +1,4 @@
 .vagrant
 .env
+
+docker-compose.yaml

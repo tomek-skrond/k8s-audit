@@ -1,0 +1,21 @@
+#export POSTGRES_PASSWORD=pass
+#export POSTGRES_DB=fruits
+#export POSTGRES_USER=user
+#export POSTGRES_HOST=127.0.0.1
+#export SSLMODE="disable"
+# apiVersion: v1
+# kind: ConfigMap
+# metadata:
+#   name: postgres-config
+#   labels:
+#     app: postgres
+# data:
+#   - name: POSTGRES_DB
+#     value: 
+
+#   POSTGRES_USER: user
+#   - name: POSTGRES_PASSWORD
+#     valueFrom:
+#       secretKeyRef:
+#         name: postgres-secret
+#         key: postgres-pass

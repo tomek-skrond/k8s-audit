@@ -18,7 +18,7 @@ type Server struct {
 }
 
 func NewServer(db *Storage) *Server {
-	temp := template.Must(template.ParseFiles("template/home.html"))
+	temp := template.Must(template.ParseFiles("home.html"))
 	return &Server{
 		Database: db,
 		tmpl:     *temp,
@@ -58,7 +58,7 @@ func (s *Server) InsertFruitHandler(c echo.Context) error {
 		return err
 	}
 
-	return c.Redirect(302, "/")
+	return c.Redirect(200, "/")
 }
 
 func (s *Server) DeleteFruitHandler(c echo.Context) error {
@@ -92,7 +92,7 @@ func main() {
 	// Routes
 	e.GET("/", server.Home)
 	e.POST("/fruit", server.InsertFruitHandler)
-	e.DELETE("/fruit/:id", server.DeleteFruitHandler)
+	// e.DELETE("/fruit/:id", server.DeleteFruitHandler)
 	// e.GET("/fruit", server.GetFruitHandler)
 	// Start server
 	e.Logger.Fatal(e.Start(":1323"))

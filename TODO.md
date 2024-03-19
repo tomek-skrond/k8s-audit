@@ -2,6 +2,6 @@
 
 [x] jak zainstalować kubernetes poradnik/linki/komendy
 
-[ ] Zrobić przentacje 
+[x] Zrobić przentacje 
 
 [ ] Poszukać automatu do CIS Benchamrk

@@ -1,0 +1,62 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fruit-app
+spec:
+  selector:
+    matchLabels:
+      app: fruit-app
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: fruit-app
+    spec:
+      containers:
+        - name: fruit-app
+          image: tomekskr/fruitapp:v1
+          ports:
+            - containerPort: 1323
+              name: "http"
+          env:
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-secret
+                  key: postgres-pass
+            - name: POSTGRES_USER
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-secret
+                  key: postgres-user
+            - name: POSTGRES_DB
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-secret
+                  key: postgres-dbname
+            - name: SSLMODE
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-secret
+                  key: postgres-sslmode
+            - name: POSTGRES_HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: postgres-config
+                  key: postgres-url
+          # resources:
+          #   limits:
+          #     memory: 5Gi
+          #     # cpu: "1"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: fruit-app
+spec:
+  ports:
+  - port: 1323
+    protocol: TCP
+    targetPort: 1323
+  selector:
+    app: fruit-app

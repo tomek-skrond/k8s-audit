@@ -2,3 +2,5 @@
 .env
 
 docker-compose.yaml
+kube-bench
+userful-cmds.sh

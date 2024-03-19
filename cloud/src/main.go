@@ -58,7 +58,7 @@ func (s *Server) InsertFruitHandler(c echo.Context) error {
 		return err
 	}
 
-	return c.Redirect(200, "/")
+	return c.Redirect(302, "/")
 }
 
 func (s *Server) DeleteFruitHandler(c echo.Context) error {

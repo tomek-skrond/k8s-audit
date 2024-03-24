@@ -3,4 +3,4 @@
 
 docker-compose.yaml
 useful-cmds.sh
-cert
+cert/*

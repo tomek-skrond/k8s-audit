@@ -54,9 +54,10 @@ kind: Service
 metadata:
   name: fruit-app
 spec:
-  ports:
-  - port: 1323
-    protocol: TCP
-    targetPort: 1323
   selector:
     app: fruit-app
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 1323
+  type: NodePort

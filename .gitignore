@@ -6,3 +6,4 @@ useful-cmds.sh
 cloud/gke-ingress/cert/*
 cert/
 cert
+kube-prometheus

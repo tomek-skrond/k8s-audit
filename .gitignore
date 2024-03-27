@@ -7,3 +7,4 @@ cloud/gke-ingress/cert/*
 cert/
 cert
 kube-prometheus
+pods.log

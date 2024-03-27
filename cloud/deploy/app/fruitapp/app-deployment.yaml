@@ -57,7 +57,8 @@ spec:
   selector:
     app: fruit-app
   ports:
-  - protocol: TCP
+  - name: "fruitport"
+    protocol: TCP
     port: 80
     targetPort: 1323
   type: NodePort

@@ -48,6 +48,6 @@ jobs:
         with:
           context: "{{defaultContext}}:cloud/src"
           push: true
-          tags: ${{ env.IMAGE_NAME }}:${{ steps.meta.outputs.tags }}
+          tags: ${{ steps.meta.outputs.tags }}
           #tags: ${{ secrets.DOCKER_HUB_USERNAME }}/myapp:${{ steps.vars.outputs.tag }} , ${{ secrets.DOCKER_HUB_USERNAME }}/myapp:latest
 

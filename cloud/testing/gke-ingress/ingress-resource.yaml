@@ -21,7 +21,7 @@ spec:
       port:
         number: 80
   rules:
-  - host: "test.fruits.bobaklabs.com"
+  - host: "test-fruits.bobaklabs.com"
     http:
       paths:
       - path: "/*"

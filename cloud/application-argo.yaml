@@ -6,31 +6,37 @@ metadata:
 spec:
   project: default
 
-  source:
-    - name: secret
-      repoURL: https://github.com/tomek-skrond/k8s-audit.git
-      targetRevision: HEAD
-      path: cloud/testing/app/secret
+  sources:
+    # - name: secret
+    #   repoURL: https://github.com/tomek-skrond/k8s-audit.git
+    #   targetRevision: HEAD
+    #   path: cloud/testing/app/secret
 
-    - name: configmap
-      repoURL: https://github.com/tomek-skrond/k8s-audit.git
-      targetRevision: HEAD
-      path: cloud/testing/app/configmap
+    # - name: configmap
+    #   repoURL: https://github.com/tomek-skrond/k8s-audit.git
+    #   targetRevision: HEAD
+    #   path: cloud/testing/app/configmap
 
-    - name: postgres
-      repoURL: https://github.com/tomek-skrond/k8s-audit.git
-      targetRevision: HEAD
-      path: cloud/testing/app/postgres
+    # - name: postgres
+    #   repoURL: https://github.com/tomek-skrond/k8s-audit.git
+    #   targetRevision: HEAD
+    #   path: cloud/testing/app/postgres
 
-    - name: app
-      repoURL: https://github.com/tomek-skrond/k8s-audit.git
-      targetRevision: HEAD
-      path: cloud/testing/app/fruitapp
+    # - name: app
+    #   repoURL: https://github.com/tomek-skrond/k8s-audit.git
+    #   targetRevision: HEAD
+    #   path: cloud/testing/app/fruitapp
 
-    - name: gke-ingress
-      repoURL: https://github.com/tomek-skrond/k8s-audit.git
+    # - name: gke-ingress
+    #   repoURL: https://github.com/tomek-skrond/k8s-audit.git
+    #   targetRevision: HEAD
+    #   path: cloud/testing/gke-ingress
+
+    # - name: fruitapp
+
+    - repoURL: https://github.com/tomek-skrond/k8s-audit.git
       targetRevision: HEAD
-      path: cloud/testing/gke-ingress
+      path: cloud/testing
 
   destination:
     server: https://kubernetes.default.svc

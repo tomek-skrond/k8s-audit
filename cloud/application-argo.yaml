@@ -7,9 +7,31 @@ spec:
   project: default
 
   source:
-    repoURL: https://github.com/tomek-skrond/k8s-audit.git
-    targetRevision: HEAD
-    path: cloud/testing
+    - name: secret
+      repoURL: https://github.com/tomek-skrond/k8s-audit.git
+      targetRevision: HEAD
+      path: cloud/testing/app/secret
+
+    - name: configmap
+      repoURL: https://github.com/tomek-skrond/k8s-audit.git
+      targetRevision: HEAD
+      path: cloud/testing/app/configmap
+
+    - name: postgres
+      repoURL: https://github.com/tomek-skrond/k8s-audit.git
+      targetRevision: HEAD
+      path: cloud/testing/app/postgres
+
+    - name: app
+      repoURL: https://github.com/tomek-skrond/k8s-audit.git
+      targetRevision: HEAD
+      path: cloud/testing/app/fruitapp
+
+    - name: gke-ingress
+      repoURL: https://github.com/tomek-skrond/k8s-audit.git
+      targetRevision: HEAD
+      path: cloud/testing/gke-ingress
+
   destination:
     server: https://kubernetes.default.svc
     namespace: fruitapp
